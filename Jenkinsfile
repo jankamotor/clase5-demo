@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Install Dependencies') {
             steps {
-                bat 'npm install'
+                sh 'npm install'
             }
         }
 
@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build Application') {
             steps {
-                bat 'ng build'
+                sh 'ng build'
             }
         }
     }
