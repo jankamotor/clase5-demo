@@ -25,11 +25,5 @@ pipeline {
                 sh 'service nginx start'
             }
         }
-      
-        stage('Initialize Web Server') {
-            steps {
-                sh 'service nginx start'
-            }
-        }
     }
 }
