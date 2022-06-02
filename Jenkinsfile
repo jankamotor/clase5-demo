@@ -25,5 +25,17 @@ pipeline {
                 sh 'service nginx start'
             }
         }
+
+        stage('Remove template file') {
+            steps {
+                sh 'rm /var/www/html/index.nginx-debian.html'
+            }
+        }
+
+        stage('Deploy Application') {
+            steps {
+                sh 'cp dist/clase5-demo/* /var/www/html/'
+            }
+        }
     }
 }
