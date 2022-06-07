@@ -2,6 +2,7 @@ pipeline {
     agent { 
       dockerfile {
         args '--mount type=volume,src=deploy_app,dst=/tmp'
+        args '-u 0:0'
       }
     }
 
