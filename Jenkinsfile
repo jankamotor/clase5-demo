@@ -1,7 +1,7 @@
 pipeline {
     agent { 
       dockerfile {
-        args '-v deploy_app:/tmp -u 0:0'
+        args '-v deploy_app:/tmp/ -u 0:0'
       }
     }
 
