@@ -1,5 +1,9 @@
 pipeline {
-    agent { dockerfile true }
+    agent { 
+      dockerfile {
+        args '--mount type=volume,src=deploy_app,dst=/tmp'
+      }
+    }
 
     stages {
         stage('Install Dependencies') {
