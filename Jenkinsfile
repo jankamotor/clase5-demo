@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker { 
+          image 'node:16.13.1-alpine'
+          args '--mount type=volume,src=deploy_app,dst=/tmp'
+        }
+    }
 
     stages {
         stage('Install Dependencies') {
@@ -28,7 +33,7 @@ pipeline {
       
         stage('Deploy Application') {
             steps {
-                sh 'cp dist/clase5-demo/* /var/www/html/'
+                sh 'cp dist/clase5-demo/* /tmp/'
             }
         }
     }
