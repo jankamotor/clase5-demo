@@ -19,11 +19,11 @@ pipeline {
             }
         }
 
-        stage('Sonar Scanner') {
-            steps {
-                sh 'npm run sonar'
-            }
-        }
+//         stage('Sonar Scanner') {
+//             steps {
+//                 sh 'npm run sonar'
+//             }
+//         }
 
         stage('Build Application') {
             steps {
