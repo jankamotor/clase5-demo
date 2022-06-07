@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker { 
-          image 'node:16.13.1-alpine'
-          args '--mount type=volume,src=deploy_app,dst=/tmp'
-        }
-    }
+    agent { dockerfile true }
 
     stages {
         stage('Install Dependencies') {
