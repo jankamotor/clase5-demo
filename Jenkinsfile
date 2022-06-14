@@ -36,19 +36,19 @@ pipeline {
             }
         }
       
-        stage('Deploying Application...') {
-             agent {
+        //stage('Deploying Application...') {
+            // agent {
                 label 'docker_host'
-            }
-            steps {
-                dir ('/home/administrator/proyects/angular_ci-cd') {
-                sh 'docker-compose build'
-                sh 'docker-compose up -d --no-color --wait'
-                sh 'docker-compose ps'
+          //  }
+           // steps {
+               // dir ('/home/administrator/proyects/angular_ci-cd') {
+               // sh 'docker-compose build'
+               // sh 'docker-compose up -d --no-color --wait'
+               // sh 'docker-compose ps'
                 
-               }
+              // }
                
-            }
-        }
+           // }
+        //}
     }
 }
