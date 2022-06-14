@@ -6,13 +6,13 @@ pipeline {
     }
 
     stages {
-        stage('Install Dependencies') {
+        stage('Installing Dependencies...') {
             steps {
                 sh 'npm install'
             }
         }
 
-        stage('Unit Test') {
+        stage('Executing Unit Test...') {
             steps {
                 echo 'Ejecutando Unit Test'
             }
@@ -24,15 +24,30 @@ pipeline {
 //             }
 //         }
 
-        stage('Build Application') {
+        stage('Build Application...') {
             steps {
                 sh 'npm run build'
             }
         }
       
-        stage('Deploy Application') {
+        stage('Copying Artifacts...') {
             steps {
                 sh 'cp dist/clase5-demo/* /tmp/'
+            }
+        }
+      
+        stage('Deploying Application...') {
+             agent {
+                label 'docker_host'
+            }
+            steps {
+                dir ('/home/administrator/proyects/angular_ci-cd') {
+                sh 'docker-compose build'
+                sh 'docker-compose up -d --no-color --wait'
+                sh 'docker-compose ps'
+                
+               }
+               
             }
         }
     }
