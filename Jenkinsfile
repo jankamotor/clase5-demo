@@ -38,7 +38,7 @@ pipeline {
       
         //stage('Deploying Application...') {
             // agent {
-                label 'docker_host'
+                //label 'docker_host'
           //  }
            // steps {
                // dir ('/home/administrator/proyects/angular_ci-cd') {
