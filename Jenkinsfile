@@ -29,10 +29,7 @@ pipeline {
          }
       
         stage('Building Application...') {
-            agent { 
-               dockerfile {
-                 args '--mount type=volume,src=deploy_app,dst=/tmp -u 0:0'
-            }
+            
         } 
             steps {
                 sh 'npm run build'
@@ -40,10 +37,7 @@ pipeline {
         }
       
         stage('Copying artifacts... ') {
-            agent { 
-               dockerfile {
-                 args '--mount type=volume,src=deploy_app,dst=/tmp -u 0:0'
-            }
+            
         } 
             steps {
                 sh 'cp dist/clase5-demo/* /tmp/'
