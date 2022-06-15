@@ -30,7 +30,7 @@ pipeline {
       
         stage('Building Application...') {
             
-        } 
+         
             steps {
                 sh 'npm run build'
             }
@@ -38,7 +38,7 @@ pipeline {
       
         stage('Copying artifacts... ') {
             
-        } 
+         
             steps {
                 sh 'cp dist/clase5-demo/* /tmp/'
             }
@@ -56,6 +56,6 @@ pipeline {
                }
             }
         }
-    
+    } 
 }
     
