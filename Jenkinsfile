@@ -14,7 +14,7 @@ pipeline {
                 sh 'docker-compose build'
                 sh 'docker-compose up -d --no-color --wait'
                 sh 'docker-compose ps'
-                sh 'npm install'
+                sh '/usr/bin/npm install'
               }
                 
             }
