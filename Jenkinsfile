@@ -7,15 +7,18 @@ pipeline {
     stages {
         
         stage(' Creating Node Container and Installing Dependencies....') {
+           agent {
+               docker {
+                image 'node_uc'
+                args '--mount type=volume,src=deploy_app2,dst=/tmp -u 0:0'
+               }  
+                         
+            }
              
             steps {
                 echo 'Ejecutando Unit Test'
-                dir ('/home/administrator/proyects/node') {
-                sh 'docker-compose build'
-                sh 'docker-compose up -d --no-color --wait'
-                sh 'docker-compose ps'
                 sh '/usr/bin/npm install'
-              }
+              
                 
             }
          
