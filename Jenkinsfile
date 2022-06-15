@@ -7,20 +7,19 @@ pipeline {
     stages {
         
         stage(' Creating Node Container and Installing Dependencies....') {
-          steps {
-              
-               dir ('/home/administrator/proyects/node') {
+             
+            steps {
+                echo 'Ejecutando Unit Test'
+                dir ('/home/administrator/proyects/node') {
                 sh 'docker-compose build'
                 sh 'docker-compose up -d --no-color --wait'
                 sh 'docker-compose ps'
-                
-               }
-            
-            }
-        } 
-            steps {
                 sh 'npm install'
+              }
+                
             }
+         
+            
         }
 
         stage('Executing Unit Test...') {
@@ -53,7 +52,7 @@ pipeline {
             }
         }
         stage('Deploying Application...') {
-            agent {
+           agent {
                 label 'docker_host'
             }
             steps {
@@ -67,4 +66,3 @@ pipeline {
         }
     } 
 }
-    
