@@ -49,8 +49,14 @@ pipeline {
         }
       
         stage('Copying artifacts... ') {
-            
-         
+            agent {
+               docker {
+                image 'node_uc'
+                args '--mount type=volume,src=deploy_app2,dst=/tmp -u 0:0'
+               }  
+                         
+            } 
+          
             steps {
                 sh 'cp dist/clase5-demo/* /tmp/'
             }
