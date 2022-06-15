@@ -1,8 +1,6 @@
 pipeline {
   
-    agent {
-        label 'docker_host'
-            }
+    agent none
 
     stages {
         
@@ -17,7 +15,7 @@ pipeline {
              
             steps {
                 echo 'Ejecutando Unit Test'
-                sh '/usr/bin/npm install'
+                sh 'npm install'
               
                 
             }
