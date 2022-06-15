@@ -3,7 +3,7 @@ pipeline {
 
     stages {
         
-        stage('Install Dependencies') {
+        stage(' Creating Node Container and Installing Dependencies....') {
             agent { 
                dockerfile {
                   args '--mount type=volume,src=deploy_app,dst=/tmp -u 0:0'
@@ -14,20 +14,21 @@ pipeline {
             }
         }
 
-        stage('Unit Test') {
+        stage('Executing Unit Test...') {
             
             steps {
                 echo 'Ejecutando Unit Test'
             }
         }
 
-//         stage('Sonar Scanner') {
-//             steps {
-//                 sh 'npm run sonar'
-//             }
-//         }
-
-        stage('Build Application') {
+         stage('Executing Sonar Scanner...') {
+             steps {
+                 sh 'npm run sonar'
+                   echo 'Ejecutando Unit Test'
+             }
+         }
+      
+        stage('Building Application...') {
             agent { 
                dockerfile {
                  args '--mount type=volume,src=deploy_app,dst=/tmp -u 0:0'
@@ -38,7 +39,7 @@ pipeline {
             }
         }
       
-        stage('Copying artifacts ') {
+        stage('Copying artifacts... ') {
             agent { 
                dockerfile {
                  args '--mount type=volume,src=deploy_app,dst=/tmp -u 0:0'
@@ -48,7 +49,7 @@ pipeline {
                 sh 'cp dist/clase5-demo/* /tmp/'
             }
         }
-        stage('Deploying Application') {
+        stage('Deploying Application...') {
             agent {
                 label 'docker_host'
             }
