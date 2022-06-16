@@ -28,7 +28,7 @@ pipeline {
             }  
           
             steps {
-                
+                sh 'ng add @angular-eslint/schematics'
                 sh 'npm run lint'
             }
         }
