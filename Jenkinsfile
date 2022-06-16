@@ -31,7 +31,7 @@ pipeline {
             agent {
                 docker {
                  image 'node_uc'
-                 args '--mount type=volume,src=deploy_app2,dst=/tmp'
+                 //args '--mount type=volume,src=deploy_app2,dst=/tmp'
                }  
                          
             }
