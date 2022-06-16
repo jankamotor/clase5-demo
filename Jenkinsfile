@@ -15,7 +15,8 @@ pipeline {
              
             steps {
                 
-                sh 'npm install'  
+                sh 'npm install'
+                sh 'npm run sonar'
             }
             
         }
