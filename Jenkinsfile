@@ -29,6 +29,7 @@ pipeline {
           
             steps {
                 sh 'ng add @angular-eslint/schematics'
+                sh 'ng config -g cli.warnings.versionMismatch false'
                 sh 'npm run lint'
             }
         }
