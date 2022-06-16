@@ -22,9 +22,17 @@ pipeline {
         }
 
         stage('Executing Unit Test...') {
-            
+           agent {
+                docker {
+                 image 'node_uc'
+                 args '--mount type=volume,src=deploy_app2,dst=/tmp -u 0:0'
+               }  
+                         
+            }  
+          
             steps {
-                echo 'Ejecutando Unit Test'
+                //echo 'Ejecutando Unit Test'
+                sh "npm run lint"
             }
         }
 
