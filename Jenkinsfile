@@ -29,6 +29,8 @@ pipeline {
           
             steps {
                 echo ' Running Lint...'
+                 sh 'npm install eslint --save-dev'
+                 sh 'npm install @angular-eslint/builder:lint --save-dev'
                 //sh 'npm run lint'
             }
         }
