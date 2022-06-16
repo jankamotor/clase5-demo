@@ -33,7 +33,8 @@ pipeline {
             steps {
                 //echo 'Ejecutando Unit Test'
                 //sh "npm install @angular-eslint/builder"
-                sh 'npm init @eslint/config'
+                sh 'npm install eslint -g -D'
+                sh 'eslint --init'
                 sh 'npm run lint'
             }
         }
