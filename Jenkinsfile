@@ -9,19 +9,16 @@ pipeline {
                docker {
                 image 'node_uc'
                 args '--mount type=volume,src=deploy_app2,dst=/tmp -u 0:0'
-               }  
-                         
+               }              
             }
              
             steps {
                 
-                sh 'npm install'
-               
-            }
-            
+                sh 'npm install'  
+            }   
         }
 
-        stage('Executing Unit Test...') {
+        stage('Executing Lint Test...') {
            agent {
                 docker {
                  image 'node_uc'
@@ -35,7 +32,22 @@ pipeline {
                 sh 'npm run lint'
             }
         }
-
+        
+        stage('Executing Unit Test...') {
+           agent {
+                docker {
+                 image 'node_uc'
+                 args '--mount type=volume,src=deploy_app2,dst=/tmp -u 0:0'
+               }  
+                         
+            }  
+          
+            steps {
+                
+                sh 'npm run test'
+            }
+        }
+ 
          stage('Executing Sonar Scanner...') {
             agent {
                 docker {
@@ -47,7 +59,6 @@ pipeline {
          
              steps {
                    sh 'npm run sonar'
-                   //echo 'Ejecutando Unit Test'
              }
          }
       
