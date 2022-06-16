@@ -29,8 +29,8 @@ pipeline {
 
          stage('Executing Sonar Scanner...') {
              steps {
-                 //sh 'npm run sonar'
-                   echo 'Ejecutando Unit Test'
+                   sh 'npm run sonar'
+                   //echo 'Ejecutando Unit Test'
              }
          }
       
