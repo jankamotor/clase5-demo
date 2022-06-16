@@ -31,11 +31,7 @@ pipeline {
             }  
           
             steps {
-                //echo 'Ejecutando Unit Test'
-                //sh "npm install @angular-eslint/builder"
-                //sh 'npm install eslint -g -D'
-                sh 'npm install eslint --save-dev'
-                sh 'npm init @eslint/config'
+                
                 sh 'npm run lint'
             }
         }
