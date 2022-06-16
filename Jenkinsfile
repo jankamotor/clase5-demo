@@ -32,6 +32,7 @@ pipeline {
           
             steps {
                 //echo 'Ejecutando Unit Test'
+                sh "npm install -g eslint"
                 sh "npm run lint"
             }
         }
