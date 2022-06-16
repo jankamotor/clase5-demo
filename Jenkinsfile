@@ -28,6 +28,10 @@ pipeline {
         }
 
          stage('Executing Sonar Scanner...') {
+           
+            agent {
+                label 'docker_host'
+            }
              steps {
                    sh 'npm run sonar'
                    //echo 'Ejecutando Unit Test'
