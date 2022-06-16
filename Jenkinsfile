@@ -4,7 +4,7 @@ pipeline {
 
     stages {
         
-        stage(' Creating Node Container and Installing Dependencies....') {
+        stage(' Creating Node and Installing Dependencies....') {
            agent {
                docker {
                 image 'node_uc'
