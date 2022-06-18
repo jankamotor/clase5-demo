@@ -46,7 +46,7 @@ pipeline {
           
             steps {
                  echo ' Running Test...'
-                 //sh 'npm run test'
+                 sh 'npm run test'
             }
         }
  
